@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 export default function Dashboard() {
   const [portfolio, setPortfolio] = useState(null);
   const [movers, setMovers] = useState([]);
   const [stocks, setStocks] = useState(["AAPL", "TSLA", "NVDA", "MSFT"]);
 
   const fetchAll = async () => {
-    const p = await fetch("http://localhost:8000/portfolio");
-    const m = await fetch("http://localhost:8000/top-movers");
+    const p = await fetch(`${API_BASE}/portfolio`);
+    const m = await fetch(`${API_BASE}/top-movers`);
 
     setPortfolio(await p.json());
     setMovers(await m.json());
@@ -83,7 +85,7 @@ function StockCard({ ticker }) {
 
   useEffect(() => {
     const load = async () => {
-      const res = await fetch(`http://localhost:8000/price/${ticker}`);
+      const res = await fetch(`${API_BASE}/price/${ticker}`);
       setData(await res.json());
     };
 
