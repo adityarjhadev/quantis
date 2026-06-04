@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import SignIn from "./signin";
 import Signup from "./signup";
 import Dashboard from "./dashboard";
-import Onboarding from "./Onboarding";
+import Onboarding from "./onboarding";
 import Signin from "./signin";
 
 export default function App() {
