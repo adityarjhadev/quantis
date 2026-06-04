@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  background: #0b0b0c;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  color: white;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 320px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #141416;
+  border: 1px solid #222;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.title {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.ticker {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.price {
+  font-size: 42px;
+  margin-top: 10px;
+  color: #d6c6a6;
+  transition: all 0.2s ease;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.change {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.up {
+  color: #4ade80;
+}
+
+.down {
+  color: #fb7185;
+}
+@keyframes flash {
+  0% { opacity: 0; }
+  15% { opacity: 0.75; }
+  45% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes landingFlash {
+  0% {
+    opacity: 1;
+    transform: scaleX(0.2);
+  }
+  10% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  45% {
+    opacity: 0.92;
+  }
+  80% {
+    opacity: 0.22;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.landing-overlay {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0f1115;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.landing-overlay.active {
+  opacity: 1;
+  animation: pageExpand 1s ease-out forwards;
+}
+
+@keyframes pageExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.95;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 1;
+  }
+}
+
+.sparkline {
+  display: block;
+}
+
+.sparkline.positive {
+  fill: none;
+  stroke: #7ee787;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sparkline.negative {
+  fill: none;
+  stroke: #fb7185;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.onboarding-scroll {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-panel {
+  scroll-snap-align: start;
+}

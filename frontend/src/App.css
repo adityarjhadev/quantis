@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0b0b0c;
+  color: white;
+}
+
+/* APP */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   TOP BAR (iOS GLASS)
+========================= */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 20px;
+
+  background: rgba(20, 20, 22, 0.65);
+  backdrop-filter: blur(25px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* PILLS */
+.pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  font-size: 13px;
+  color: #ddd;
+}
+
+.brand {
+  color: #d6c6a6;
+  font-weight: 600;
+}
+
+.pillGroup {
+  display: flex;
+  gap: 10px;
+}
+
+/* INPUT AREA */
+.addBox {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+
+  outline: none;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  border: none;
+  cursor: pointer;
+
+  background: #d6c6a6;
+  color: black;
+  font-weight: 600;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.content {
+  padding: 24px;
+}
+
+/* EMPTY STATE */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 60vh;
+
+  text-align: center;
+  color: #aaa;
+}
+
+.emptyTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d6c6a6;
+}
+
+.emptySub {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  padding: 16px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticker {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.price {
+  color: #d6c6a6;
+}
+
+.sub {
+  margin-top: 10px;
+  color: #888;
+  font-size: 13px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}

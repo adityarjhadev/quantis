@@ -1,0 +1,186 @@
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #050505;
+}
+.auth-page {
+  position: fixed;
+  inset: 0;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #050505;
+  overflow: hidden;
+}
+#root {
+  height: 100%;
+}
+/* =========================
+   BACKGROUND GLOWS (ONBOARDING STYLE)
+========================= */
+
+.auth-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(214, 198, 166, 0.18),
+    transparent 70%
+  );
+  filter: blur(120px);
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
+.auth-glow-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06),
+    transparent 70%
+  );
+  filter: blur(140px);
+  animation: floatGlow2 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(-40px, -20px) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+  100% { transform: translate(-40px, -20px) scale(1); }
+}
+
+@keyframes floatGlow2 {
+  0% { transform: translate(60px, 40px) scale(1); }
+  50% { transform: translate(-40px, -30px) scale(1.15); }
+  100% { transform: translate(60px, 40px) scale(1); }
+}
+
+/* =========================
+   CARD
+========================= */
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  width: 360px;
+  padding: 38px;
+  border-radius: 18px;
+
+  background: rgba(10, 10, 10, 0.65);
+  border: 1px solid rgba(214, 198, 166, 0.15);
+  backdrop-filter: blur(22px);
+
+  animation: fadeUp 0.9s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.auth-badge {
+  font-size: 12px;
+  color: rgba(214, 198, 166, 0.8);
+  margin-bottom: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.auth-title {
+  color: #e8dcc3;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.auth-sub {
+  color: rgba(232, 220, 195, 0.55);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-input {
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.auth-input:focus {
+  border-color: rgba(214, 198, 166, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.auth-button {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(214, 198, 166, 0.25);
+  background: linear-gradient(135deg, #d6c6a6, #a8956f);
+
+  color: #0b0b0b;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(214, 198, 166, 0.25);
+}
+
+/* =========================
+   SWITCH LINK
+========================= */
+
+.auth-switch {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(232, 220, 195, 0.5);
+}
+
+.auth-switch span {
+  color: #d6c6a6;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.auth-switch span:hover {
+  text-decoration: underline;
+}
