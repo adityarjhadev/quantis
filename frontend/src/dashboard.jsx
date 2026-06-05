@@ -733,7 +733,7 @@ function PortfolioView() {
 
           <div className="portfolio-metric">
             <span className="metric-label">Buying Power</span>
-            <div className="metric-value">${(current.buyingPower / 1000).toFixed(1)}K</div>
+                <div className="metric-value">${(current.buyingPower / 1000).toFixed(1)}K</div>
             <span className="metric-sub">Available to trade</span>
           </div>
 

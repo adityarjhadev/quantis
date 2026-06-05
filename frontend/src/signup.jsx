@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./auth.css";
+import "./Auth.css";
 import { signup, getCurrentUser } from "./auth";
 
 export default function Signup() {
