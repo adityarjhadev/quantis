@@ -1,0 +1,4936 @@
+/* ===================== DASHBOARD — beige liquid glass theme ===================== */
+
+.dash {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 120px;
+  background: #1a1612;
+  color: #f5ede0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}
+
+.dash-bg {
+  position: fixed;
+  inset: -10%;
+  background:
+    radial-gradient(50% 40% at 15% 10%, rgba(201, 180, 143, 0.22), transparent 60%),
+    radial-gradient(40% 40% at 90% 20%, rgba(176, 148, 108, 0.20), transparent 60%),
+    radial-gradient(50% 50% at 50% 100%, rgba(232, 213, 178, 0.12), transparent 60%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===================== TOP BAR ===================== */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(26, 22, 18, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(232, 213, 178, 0.08);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.topbar-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  box-shadow: 0 0 12px rgba(232, 213, 178, 0.6);
+}
+
+.topbar-stats {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: #b8a98e;
+}
+.topbar-stats b { color: #f5ede0; font-weight: 700; }
+.topbar-stats .pos b { color: #d4b878; }
+.topbar-stats .sep { color: #5a4d3a; }
+
+.topbar-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(232, 213, 178, 0.18);
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.topbar-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 220px;
+  padding: 8px;
+  background: rgba(36, 30, 24, 0.92);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  display: grid;
+  gap: 2px;
+}
+.topbar-menu-head { padding: 10px 12px 12px; border-bottom: 1px solid rgba(232, 213, 178, 0.08); margin-bottom: 4px; }
+.topbar-menu-name { font-weight: 600; font-size: 14px; }
+.topbar-menu-handle { color: #8e7e63; font-size: 12px; }
+.topbar-menu-item {
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #e8dcc4;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.topbar-menu-item:hover { background: rgba(232, 213, 178, 0.08); }
+
+/* ===================== TICKER ===================== */
+
+.ticker {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.06);
+  background: rgba(26, 22, 18, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 5;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  padding: 10px 0;
+  animation: ticker 60s linear infinite;
+  width: max-content;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.tk { font-size: 12.5px; color: #b8a98e; letter-spacing: 0.02em; }
+.tk b { color: #f5ede0; margin-right: 6px; font-weight: 600; }
+.tk.up { color: #d4b878; }
+.tk.down { color: #c98c7a; }
+
+/* ===================== MAIN GRID ===================== */
+
+.dash-main {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+}
+.grid > .card.hero-card { grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .grid > .card.hero-card { grid-row: auto; }
+  .dash-main { padding: 20px 16px; }
+}
+
+/* ===================== CARDS ===================== */
+
+.card {
+  background: rgba(36, 30, 24, 0.55);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35), inset 0 1px 0 rgba(232, 213, 178, 0.06);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.card-head h2 { font-size: 15px; font-weight: 600; margin: 0; letter-spacing: -0.01em; color: #f5ede0; }
+
+.pill {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(232, 213, 178, 0.08);
+  color: #c9b48f;
+  border: 1px solid rgba(232, 213, 178, 0.08);
+}
+.pill.up { background: rgba(212, 184, 120, 0.14); color: #d4b878; border-color: rgba(212, 184, 120, 0.28); }
+
+.dot-live {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #c98c7a;
+  box-shadow: 0 0 12px #c98c7a;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{ opacity: 1 } 50%{ opacity: 0.4 } }
+
+/* ===================== LEADERBOARD ===================== */
+
+.lb { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 60px 80px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  font-size: 14px;
+}
+.lb-row:hover { background: rgba(232, 213, 178, 0.04); }
+.lb-row.you {
+  background: linear-gradient(90deg, rgba(232, 213, 178, 0.18), rgba(176, 148, 108, 0.10));
+  border: 1px solid rgba(232, 213, 178, 0.28);
+}
+.lb-row.rival { border: 1px dashed rgba(201, 140, 122, 0.32); }
+
+.lb-rank { color: #8e7e63; font-variant-numeric: tabular-nums; font-weight: 600; }
+.lb-name { display: flex; flex-direction: column; gap: 2px; font-weight: 500; color: #f5ede0; }
+.lb-handle { color: #8e7e63; font-size: 11.5px; }
+.lb-delta { font-size: 12px; color: #8e7e63; text-align: right; font-variant-numeric: tabular-nums; }
+.lb-delta.up { color: #d4b878; }
+.lb-delta.down { color: #c98c7a; }
+.lb-pnl { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.lb-pnl.up { color: #d4b878; }
+.lb-pnl.down { color: #c98c7a; }
+
+/* ===================== LEAGUE / FEED / FRIENDS ===================== */
+
+.league-list { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+.league-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.06);
+  border-radius: 12px;
+}
+.league-name { font-weight: 600; font-size: 14px; color: #f5ede0; }
+.league-meta { color: #8e7e63; font-size: 12px; margin-top: 2px; }
+.league-meta code { background: rgba(232, 213, 178, 0.10); padding: 1px 6px; border-radius: 5px; color: #e8dcc4; font-size: 11px; }
+
+.feed { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; max-height: 280px; overflow: hidden; }
+.feed li {
+  padding: 10px 12px;
+  background: rgba(232, 213, 178, 0.04);
+  border-radius: 10px;
+  font-size: 13px;
+  color: #e8dcc4;
+  animation: feedIn 0.4s ease;
+}
+@keyframes feedIn { from { transform: translateY(-6px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+.friends { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.friend {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(232, 213, 178, 0.04);
+  font-size: 13.5px;
+}
+.friend-status { width: 8px; height: 8px; border-radius: 50%; }
+.friend-status.online { background: #d4b878; box-shadow: 0 0 8px #d4b878; }
+.friend-status.trading { background: #e8a87c; box-shadow: 0 0 8px #e8a87c; }
+.friend-status.offline { background: #5a4d3a; }
+.friend-name { display: flex; flex-direction: column; gap: 2px; color: #f5ede0; }
+.friend-handle { color: #8e7e63; font-size: 11px; }
+.friend-pnl { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 13px; }
+.friend-pnl.up { color: #d4b878; }
+.friend-pnl.down { color: #c98c7a; }
+
+/* ===================== BUTTONS / FIELDS ===================== */
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(232, 213, 178, 0.14);
+  color: #e8dcc4;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-ghost:hover { background: rgba(232, 213, 178, 0.08); }
+
+.btn-secondary {
+  width: 100%;
+  background: rgba(232, 213, 178, 0.06);
+  border: 1px solid rgba(232, 213, 178, 0.10);
+  color: #f5ede0;
+  padding: 11px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-secondary:hover { background: rgba(232, 213, 178, 0.12); }
+
+.btn-tiny {
+  background: rgba(176, 148, 108, 0.18);
+  border: 1px solid rgba(176, 148, 108, 0.34);
+  color: #e8d5b2;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-tiny:hover { background: rgba(176, 148, 108, 0.28); }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(232, 213, 178, 0.35);
+  background: linear-gradient(180deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.35), 0 10px 30px -10px rgba(176, 148, 108, 0.50);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.55), 0 14px 36px -10px rgba(176, 148, 108, 0.70);
+}
+.btn-primary:hover::before { transform: translateX(120%); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.field { display: grid; gap: 6px; }
+.field span { font-size: 12px; color: #8e7e63; font-weight: 500; }
+.field input {
+  background: rgba(232, 213, 178, 0.05);
+  border: 1px solid rgba(232, 213, 178, 0.10);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #f5ede0;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+}
+.field input:focus { border-color: rgba(232, 213, 178, 0.45); background: rgba(232, 213, 178, 0.08); }
+
+/* ===================== MODAL ===================== */
+
+.modal-back {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  display: grid; place-items: center;
+  animation: fadeIn 0.2s ease;
+  padding: 24px;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.modal {
+  width: 100%; max-width: 420px;
+  background: rgba(36, 30, 24, 0.96);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  animation: pop 0.25s cubic-bezier(.5,1.5,.4,1);
+}
+@keyframes pop { from { transform: scale(0.94); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.modal-head h3 { margin: 0; font-size: 17px; font-weight: 600; color: #f5ede0; }
+.modal-x {
+  background: transparent; border: 0; color: #8e7e63; font-size: 24px; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 8px; font-family: inherit;
+}
+.modal-x:hover { background: rgba(232, 213, 178, 0.06); color: #f5ede0; }
+.modal-body { display: grid; gap: 14px; }
+
+.seg {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+  background: rgba(232, 213, 178, 0.05);
+  padding: 4px; border-radius: 10px;
+}
+.seg button {
+  background: transparent; border: 0; color: #8e7e63;
+  padding: 8px; border-radius: 7px; font-size: 12px; font-weight: 600;
+  text-transform: capitalize; cursor: pointer; font-family: inherit;
+}
+.seg button.active { background: rgba(232, 213, 178, 0.14); color: #f5ede0; }
+
+.muted { color: #8e7e63; }
+.small { font-size: 12px; margin: 0; }
+
+/* ===================== SCHOOL / LEARN ===================== */
+
+.stat-row {
+  display: flex; justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.06);
+  font-size: 14px;
+  color: #b8a98e;
+}
+.stat-row:last-of-type { border: 0; margin-bottom: 12px; }
+.stat-row b { color: #f5ede0; font-weight: 600; }
+.stat-row .up { color: #d4b878; }
+
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.skill {
+  padding: 16px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.07);
+  border-radius: 14px;
+}
+.skill-k {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: #d4b878;
+  padding: 3px 8px;
+  background: rgba(212, 184, 120, 0.14);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.skill h4 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: #f5ede0; }
+.skill p { margin: 0 0 12px; color: #8e7e63; font-size: 12.5px; line-height: 1.5; }
+
+/* ===================== PORTFOLIO ===================== */
+
+.spark { width: 100%; height: 80px; display: block; margin-bottom: 16px; }
+
+.pos { width: 100%; border-collapse: collapse; font-size: 13.5px; color: #e8dcc4; }
+.pos th { text-align: left; color: #8e7e63; font-weight: 500; padding: 8px 0; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid rgba(232, 213, 178, 0.08); }
+.pos td { padding: 12px 0; border-bottom: 1px solid rgba(232, 213, 178, 0.05); font-variant-numeric: tabular-nums; }
+.pos td.up { color: #d4b878; font-weight: 600; }
+.pos td.down { color: #c98c7a; font-weight: 600; }
+
+.actions { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-top: 16px; }
+
+.alloc-bar {
+  display: flex; height: 14px; border-radius: 999px; overflow: hidden;
+  background: rgba(232, 213, 178, 0.05); margin-bottom: 16px;
+}
+.alloc-bar span { display: block; height: 100%; }
+.alloc-legend { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 13px; color: #b8a98e; }
+.alloc-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; vertical-align: middle; }
+
+/* ===================== DISCOVER ===================== */
+
+.trader-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.trader {
+  padding: 18px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.07);
+  border-radius: 14px;
+  text-align: center;
+}
+.trader-av {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612; display: grid; place-items: center;
+  font-weight: 800; margin: 0 auto 10px;
+}
+.trader-name { display: flex; flex-direction: column; gap: 2px; font-weight: 600; font-size: 14px; margin-bottom: 10px; color: #f5ede0; }
+.trader-name span { color: #8e7e63; font-size: 11.5px; font-weight: 400; }
+.trader-stats { display: flex; justify-content: space-around; margin-bottom: 12px; }
+.trader-stats > div { display: flex; flex-direction: column; }
+.trader-stats b { font-size: 14px; color: #f5ede0; }
+.trader-stats b.up { color: #d4b878; }
+.trader-stats span { font-size: 10.5px; color: #8e7e63; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* ===================== LIQUID GLASS TAB BAR — BEIGE ===================== */
+
+.tabs {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: min(560px, calc(100% - 32px));
+}
+
+.tabs-glass {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background:
+    linear-gradient(180deg, rgba(245, 232, 207, 0.42), rgba(201, 180, 143, 0.28));
+  backdrop-filter: blur(34px) saturate(220%);
+  -webkit-backdrop-filter: blur(34px) saturate(220%);
+  border: 1px solid rgba(245, 232, 207, 0.45);
+  border-radius: 28px;
+  padding: 8px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(245, 232, 207, 0.10),
+    inset 0 1px 0 rgba(255, 248, 232, 0.55),
+    inset 0 -1px 0 rgba(89, 70, 47, 0.30);
+  overflow: hidden;
+}
+
+.tabs-glass::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(70% 100% at 50% 0%, rgba(255, 248, 232, 0.30), transparent 70%);
+  pointer-events: none;
+}
+
+.tabs-glass::after {
+  content: "";
+  position: absolute;
+  top: -50%; left: -20%; width: 140%; height: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255, 248, 232, 0.18), transparent);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.tabs-indicator {
+  position: absolute;
+  top: 8px; left: 8px;
+  width: calc((100% - 16px) / 5);
+  height: calc(100% - 16px);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 232, 0.60), rgba(201, 180, 143, 0.45));
+  border: 1px solid rgba(255, 248, 232, 0.55);
+  box-shadow:
+    0 8px 24px rgba(176, 148, 108, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(89, 70, 47, 0.20);
+  transition: transform 0.45s cubic-bezier(.5,1.4,.3,1);
+}
+
+.tab {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  background: rgba(232, 213, 178, 0.05);
+  border: 0;
+  color: #8a7760;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.25s, background 0.25s;
+  border-radius: 12px;
+}
+.tab.active { color: #2a2014; background: transparent; }
+.tab:hover:not(.active) { color: #9a8770; background: rgba(232, 213, 178, 0.10); }
+
+.tab-icon { font-size: 16px; line-height: 1; }
+.tab-label { font-size: 10.5px; }
+
+/* ===================== SCHOOL PAGE ===================== */
+
+.school-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.school-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(232, 213, 178, 0.08), rgba(176, 148, 108, 0.04));
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 16px;
+}
+
+@media (max-width: 900px) {
+  .school-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.10);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.stat-large {
+  font-size: 32px;
+  font-weight: 800;
+  color: #f5ede0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-large.up {
+  color: #d4b878;
+}
+
+.stat-time {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e8d5b2;
+}
+
+.stat-note {
+  font-size: 10px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+.rank-delta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 8px;
+  background: rgba(212, 184, 120, 0.12);
+  border: 1px solid rgba(212, 184, 120, 0.20);
+  border-radius: 6px;
+  color: #d4b878;
+  margin-top: 6px;
+}
+
+.rank-delta.up {
+  color: #d4b878;
+  border-color: rgba(212, 184, 120, 0.30);
+}
+
+.rank-delta.down {
+  color: #c98c7a;
+  border-color: rgba(201, 140, 122, 0.30);
+  background: rgba(201, 140, 122, 0.08);
+}
+
+.rival-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(201, 140, 122, 0.08);
+  border: 1px solid rgba(201, 140, 122, 0.16);
+  border-radius: 12px;
+}
+
+.rival-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: #c98c7a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.rival-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(232, 213, 178, 0.06);
+  border: 1px solid rgba(201, 140, 122, 0.20);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.rival-card:hover {
+  background: rgba(232, 213, 178, 0.12);
+  border-color: rgba(201, 140, 122, 0.30);
+  transform: translateY(-2px);
+}
+
+.rival-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rival-info {
+  flex: 1;
+}
+
+.rival-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.rival-handle {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.rival-pnl {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d4b878;
+}
+
+/* ===================== SCHOOL SECTION ===================== */
+
+.school-section {
+  display: grid;
+  gap: 16px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.08);
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.section-meta {
+  font-size: 12px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+/* ===================== TEACHERS GRID ===================== */
+
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.teacher-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.teacher-card:hover {
+  background: rgba(232, 213, 178, 0.10);
+  border-color: rgba(232, 213, 178, 0.16);
+  transform: translateY(-2px);
+}
+
+.teacher-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.20);
+}
+
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.teacher-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.teacher-role {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+/* ===================== CLASS LEADERBOARD ===================== */
+
+.class-leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(232, 213, 178, 0.02);
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px 100px;
+  gap: 16px;
+  padding: 14px 16px;
+  background: rgba(232, 213, 178, 0.06);
+  border-bottom: 1px solid rgba(232, 213, 178, 0.10);
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.leaderboard-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 213, 178, 0.15) transparent;
+}
+
+.leaderboard-rows::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leaderboard-rows::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.leaderboard-rows::-webkit-scrollbar-thumb {
+  background: rgba(232, 213, 178, 0.15);
+  border-radius: 4px;
+}
+
+.leaderboard-rows::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 213, 178, 0.25);
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px 100px;
+  gap: 16px;
+  padding: 12px 16px;
+  align-items: center;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.06);
+  transition: all 0.25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-row:hover {
+  background: rgba(232, 213, 178, 0.08);
+}
+
+.leaderboard-row.you {
+  background: linear-gradient(90deg, rgba(232, 213, 178, 0.12), rgba(212, 184, 120, 0.08));
+  border: 1px solid rgba(232, 213, 178, 0.20);
+  border-bottom: 1px solid rgba(232, 213, 178, 0.20);
+}
+
+.leaderboard-row.rival {
+  background: rgba(201, 140, 122, 0.08);
+  border-bottom-color: rgba(201, 140, 122, 0.12);
+}
+
+.col-rank {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4b878;
+}
+
+.col-trader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trader-avatar-mini {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.18);
+}
+
+.trader-info-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trader-name-mini {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5ede0;
+}
+
+.trader-handle-mini {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.col-delta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-align: right;
+}
+
+.col-delta.up {
+  color: #d4b878;
+}
+
+.col-delta.down {
+  color: #c98c7a;
+}
+
+.col-pnl {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  color: #e8dcc4;
+}
+
+.col-pnl.up {
+  color: #d4b878;
+}
+
+.col-pnl.down {
+  color: #c98c7a;
+}
+
+.learn-content,
+.portfolio-content,
+.discover-content {
+  padding: 20px 0;
+}
+
+.learn-content p,
+.portfolio-content p,
+.discover-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===================== LEAGUE PAGE ===================== */
+
+.league-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.league-grid-section {
+  display: grid;
+  gap: 16px;
+}
+
+.league-main-section {
+  display: grid;
+  gap: 16px;
+}
+
+/* ===================== LEAGUE HERO ===================== */
+
+.league-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(232, 213, 178, 0.10), rgba(176, 148, 108, 0.05));
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 16px;
+}
+
+@media (max-width: 1000px) {
+  .league-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hero-rank-section {
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.league-hero .hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.06);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 12px;
+}
+
+.league-hero .stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.stat-huge {
+  font-size: 40px;
+  font-weight: 800;
+  color: #f5ede0;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.hero-delta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(212, 184, 120, 0.08);
+  border: 1px solid rgba(212, 184, 120, 0.16);
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.delta-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.delta-badge {
+  font-size: 40px;
+  font-weight: 700;
+  color: #d4b878;
+  line-height: 1;
+}
+
+.delta-badge.down {
+  color: #c98c7a;
+}
+
+.hero-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e8dcc4;
+  line-height: 1.1;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.metric-value.up {
+  color: #d4b878;
+}
+
+.metric-sub {
+  font-size: 10px;
+  color: #8e7e63;
+  margin-top: 4px;
+}
+
+/* ===================== RIVAL SECTION LEAGUE ===================== */
+
+.rival-section-league {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(201, 140, 122, 0.08);
+  border: 1px solid rgba(201, 140, 122, 0.16);
+  border-radius: 12px;
+}
+
+.rival-section-league .rival-header {
+  font-size: 12px;
+  font-weight: 700;
+  color: #c98c7a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.rival-card-league {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(232, 213, 178, 0.08);
+  border: 1px solid rgba(201, 140, 122, 0.20);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.rival-card-league:hover {
+  background: rgba(232, 213, 178, 0.14);
+  border-color: rgba(201, 140, 122, 0.30);
+  transform: translateY(-2px);
+}
+
+.rival-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rival-card-league .rival-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rival-card-league .rival-info {
+  flex: 1;
+}
+
+.rival-card-league .rival-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.rival-card-league .rival-handle {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.rival-card-league .rival-stats {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.rival-stats {
+  display: flex;
+  gap: 12px;
+}
+
+.rival-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.rival-stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+}
+
+.rival-stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e8dcc4;
+}
+
+.rival-stat-value.up {
+  color: #d4b878;
+}
+
+/* ===================== LEAGUE MINI CARDS ===================== */
+
+.league-mini-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.league-mini-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+.league-mini-card:hover {
+  background: rgba(232, 213, 178, 0.12);
+  border-color: rgba(232, 213, 178, 0.16);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-rank {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d4b878;
+  background: rgba(212, 184, 120, 0.12);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.mini-pnl {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d4b878;
+}
+
+.mini-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+  line-height: 1.3;
+}
+
+.mini-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.mini-delta {
+  font-weight: 600;
+  color: #d4b878;
+  background: rgba(212, 184, 120, 0.10);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.btn-primary-small {
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #e8d5b2, #b0946c);
+  border: 1px solid rgba(232, 213, 178, 0.35);
+  color: #1a1612;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-primary-small:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(176, 148, 108, 0.35);
+}
+
+/* ===================== DISCOVER PAGE ===================== */
+
+.discover-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.discover-section {
+  display: grid;
+  gap: 16px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.08);
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.section-meta {
+  font-size: 12px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+/* ===================== TRADER CARDS ===================== */
+
+.traders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.trader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 12px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 14px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideUp 0.6s ease both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.trader-card:hover {
+  background: rgba(232, 213, 178, 0.10);
+  border-color: rgba(232, 213, 178, 0.20);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.trader-rank {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #d4b878;
+  background: rgba(212, 184, 120, 0.15);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.trader-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.25);
+}
+
+.trader-avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.20);
+  flex-shrink: 0;
+}
+
+.trader-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.trader-handle {
+  margin: 0;
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.trader-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trader-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(212, 184, 120, 0.15);
+  color: #d4b878;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.trader-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e8dcc4;
+}
+
+.stat-value.up {
+  color: #d4b878;
+}
+
+.btn-follow {
+  width: 100%;
+  padding: 8px 12px;
+  background: rgba(232, 213, 178, 0.08);
+  border: 1px solid rgba(232, 213, 178, 0.16);
+  color: #e8dcc4;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.btn-follow:hover {
+  background: rgba(232, 213, 178, 0.16);
+  border-color: rgba(232, 213, 178, 0.28);
+  transform: scale(1.02);
+}
+
+/* ===================== LEADERBOARD TABLES ===================== */
+
+.leaderboard-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(232, 213, 178, 0.02);
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 100px 80px 100px;
+  gap: 16px;
+  padding: 14px 16px;
+  background: rgba(232, 213, 178, 0.06);
+  border-bottom: 1px solid rgba(232, 213, 178, 0.10);
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 100px 80px 100px;
+  gap: 16px;
+  padding: 14px 16px;
+  align-items: center;
+  border-bottom: 1px solid rgba(232, 213, 178, 0.06);
+  transition: all 0.25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-row:hover {
+  background: rgba(232, 213, 178, 0.08);
+}
+
+.col-rank {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4b878;
+}
+
+.col-school,
+.col-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.school-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(232, 213, 178, 0.20);
+}
+
+.school-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.school-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5ede0;
+}
+
+.trader-info .trader-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5ede0;
+}
+
+.trader-info .trader-handle {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.col-members,
+.col-tournament {
+  font-size: 12px;
+  color: #b8a98e;
+}
+
+.col-delta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-align: right;
+}
+
+.col-delta.up {
+  color: #d4b878;
+}
+
+.col-delta.down {
+  color: #c98c7a;
+}
+
+.col-pnl {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4b878;
+  text-align: right;
+}
+
+/* ===================== LEAGUE CARDS ===================== */
+
+.leagues-list {
+  display: grid;
+  gap: 12px;
+}
+
+.league-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideUp 0.6s ease both;
+}
+
+.league-card:hover {
+  background: rgba(232, 213, 178, 0.10);
+  border-color: rgba(232, 213, 178, 0.20);
+  transform: translateX(6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.league-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.league-info {
+  display: grid;
+  gap: 4px;
+}
+
+.league-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.league-level {
+  margin: 0;
+  font-size: 11px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+.league-badge {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, rgba(232, 213, 178, 0.18), rgba(212, 184, 120, 0.12));
+  border: 1px solid rgba(212, 184, 120, 0.25);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #d4b878;
+  white-space: nowrap;
+}
+
+.league-progress {
+  display: grid;
+  gap: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(232, 213, 178, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4b878, #e8d5b2);
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.progress-text {
+  font-size: 11px;
+  color: #8e7e63;
+  font-weight: 500;
+}
+
+.league-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(232, 213, 178, 0.06);
+}
+
+.league-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-join {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  border: 1px solid rgba(232, 213, 178, 0.25);
+  color: #1a1612;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-join:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(176, 148, 108, 0.35);
+}
+
+/* ===================== LESSON CARDS ===================== */
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.lesson-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideUp 0.6s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232, 213, 178, 0.08), transparent);
+  transition: left 0.6s ease;
+}
+
+.lesson-card:hover {
+  background: rgba(232, 213, 178, 0.10);
+  border-color: rgba(232, 213, 178, 0.20);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.lesson-card:hover::before {
+  left: 100%;
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.lesson-category {
+  padding: 4px 10px;
+  background: rgba(212, 184, 120, 0.12);
+  border: 1px solid rgba(212, 184, 120, 0.25);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #d4b878;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.lesson-difficulty {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.lesson-difficulty.beginner {
+  background: rgba(212, 184, 120, 0.12);
+  color: #d4b878;
+  border: 1px solid rgba(212, 184, 120, 0.25);
+}
+
+.lesson-difficulty.intermediate {
+  background: rgba(232, 168, 124, 0.12);
+  color: #e8a87c;
+  border: 1px solid rgba(232, 168, 124, 0.25);
+}
+
+.lesson-difficulty.advanced {
+  background: rgba(201, 140, 122, 0.12);
+  color: #c98c7a;
+  border: 1px solid rgba(201, 140, 122, 0.25);
+}
+
+.lesson-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5ede0;
+  line-height: 1.4;
+}
+
+.lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-lesson {
+  padding: 10px 14px;
+  background: rgba(232, 213, 178, 0.08);
+  border: 1px solid rgba(232, 213, 178, 0.16);
+  color: #e8dcc4;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: auto;
+}
+
+.btn-lesson:hover {
+  background: rgba(232, 213, 178, 0.16);
+  border-color: rgba(232, 213, 178, 0.28);
+  transform: scale(1.02);
+}
+
+/* ===================== LEARN PAGE ===================== */
+
+.learn-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.learn-hero {
+  display: grid;
+  gap: 24px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(232, 213, 178, 0.10), rgba(176, 148, 108, 0.05));
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 16px;
+}
+
+.learn-hero-main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.learn-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.06);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 12px;
+}
+
+.learn-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+}
+
+.learn-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 10px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e8dcc4;
+}
+
+.category-mastery {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8dcc4;
+}
+
+.category-mastery.up {
+  color: #d4b878;
+}
+
+.category-mastery.down {
+  color: #c98c7a;
+}
+
+.category-bar {
+  height: 6px;
+  background: rgba(232, 213, 178, 0.10);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.category-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4b878, #e8d5b2);
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+/* ===================== LEARN PATH SECTION ===================== */
+
+.learn-path-section {
+  display: grid;
+  gap: 16px;
+}
+
+.path-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.path-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.path-meta {
+  font-size: 12px;
+  color: #8e7e63;
+}
+
+.weakpoints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.weakness-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(201, 140, 122, 0.08);
+  border: 1px solid rgba(201, 140, 122, 0.12);
+  border-radius: 12px;
+}
+
+.weakness-priority {
+  font-size: 10px;
+  font-weight: 700;
+  color: #c98c7a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.weakness-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.weakness-mastery {
+  font-size: 12px;
+  color: #8e7e63;
+}
+
+.btn-start-learning {
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #e8d5b2, #b0946c);
+  border: 1px solid rgba(232, 213, 178, 0.35);
+  color: #1a1612;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: auto;
+}
+
+.btn-start-learning:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(176, 148, 108, 0.30);
+}
+
+.suggested-path {
+  display: grid;
+  gap: 10px;
+}
+
+.path-item {
+  display: grid;
+  grid-template-columns: 32px 1fr 80px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  background: rgba(212, 184, 120, 0.08);
+  border: 1px solid rgba(212, 184, 120, 0.12);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.path-item:hover {
+  background: rgba(212, 184, 120, 0.14);
+  border-color: rgba(212, 184, 120, 0.24);
+  transform: translateX(4px);
+}
+
+.path-number {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  color: #1a1612;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.path-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.path-lesson {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f5ede0;
+}
+
+.path-reason {
+  font-size: 11px;
+  color: #8e7e63;
+}
+
+.btn-path-start {
+  padding: 6px 12px;
+  background: rgba(212, 184, 120, 0.16);
+  border: 1px solid rgba(212, 184, 120, 0.24);
+  color: #e8d5b2;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-path-start:hover {
+  background: rgba(212, 184, 120, 0.28);
+  transform: scale(1.05);
+}
+
+/* ===================== LEARN LESSONS SECTION ===================== */
+
+.learn-lessons-section {
+  display: grid;
+  gap: 16px;
+}
+
+.lessons-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.lesson-full-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+.lesson-full-card:hover {
+  background: rgba(232, 213, 178, 0.12);
+  border-color: rgba(232, 213, 178, 0.16);
+  transform: translateY(-3px);
+}
+
+.lesson-header-full {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.lesson-category-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8e7e63;
+  background: rgba(232, 213, 178, 0.10);
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.lesson-mastery-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #e8dcc4;
+}
+
+.lesson-mastery-badge.up {
+  color: #d4b878;
+}
+
+.lesson-mastery-badge.muted {
+  color: #8e7e63;
+}
+
+.lesson-placeholder {
+  font-size: 13px;
+  color: #8e7e63;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px dashed rgba(232, 213, 178, 0.10);
+  border-bottom: 1px dashed rgba(232, 213, 178, 0.10);
+}
+
+.btn-lesson-card {
+  padding: 6px 10px;
+  background: rgba(232, 213, 178, 0.08);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  color: #e8dcc4;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-lesson-card:hover {
+  background: rgba(232, 213, 178, 0.16);
+  border-color: rgba(232, 213, 178, 0.24);
+  transform: scale(1.02);
+}
+
+/* ===================== PORTFOLIO PAGE ===================== */
+
+.portfolio-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.portfolio-hero {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(232, 213, 178, 0.10), rgba(176, 148, 108, 0.05));
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 16px;
+}
+
+.portfolio-hero-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.portfolio-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.06);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.portfolio-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+}
+
+.portfolio-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  padding: 14px;
+  background: rgba(232, 213, 178, 0.03);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+}
+
+.portfolio-btn {
+  padding: 10px 14px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.12);
+  color: #8e7e63;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.portfolio-btn:hover {
+  background: rgba(232, 213, 178, 0.10);
+  border-color: rgba(232, 213, 178, 0.20);
+}
+
+.portfolio-btn.active {
+  background: linear-gradient(135deg, #e8d5b2, #b0946c);
+  border: 1px solid rgba(232, 213, 178, 0.35);
+  color: #1a1612;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(176, 148, 108, 0.25);
+}
+
+.portfolio-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.portfolio-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.stat-item-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.stat-item-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e8dcc4;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.stat-item-value.up {
+  color: #d4b878;
+}
+
+.stat-item-value.down {
+  color: #c98c7a;
+}
+
+/* ===================== PORTFOLIO HOLDINGS ===================== */
+
+.portfolio-holdings-section {
+  display: grid;
+  gap: 16px;
+}
+
+.holdings-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.holding-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(232, 213, 178, 0.04);
+  border: 1px solid rgba(232, 213, 178, 0.08);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  animation: slideUp 0.6s ease both;
+}
+
+.holding-card:hover {
+  background: rgba(232, 213, 178, 0.12);
+  border-color: rgba(232, 213, 178, 0.16);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.holding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holding-symbol {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5ede0;
+  background: rgba(212, 184, 120, 0.12);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.holding-price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.holding-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8dcc4;
+}
+
+.holding-day-change {
+  font-size: 11px;
+  font-weight: 600;
+  color: #d4b878;
+}
+
+.holding-day-change.down {
+  color: #c98c7a;
+}
+
+.holding-graph {
+  height: 60px;
+  background: rgba(232, 213, 178, 0.02);
+  border: 1px solid rgba(232, 213, 178, 0.06);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.holding-graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.holding-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 11px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #8e7e63;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 9px;
+}
+
+.detail-value {
+  font-weight: 700;
+  color: #e8dcc4;
+  font-size: 11px;
+}
+
+.holding-pnl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(232, 213, 178, 0.06);
+  border-radius: 8px;
+  border-top: 1px solid rgba(232, 213, 178, 0.10);
+}
+
+.holding-pnl-amount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4b878;
+}
+
+.holding-pnl-amount.down {
+  color: #c98c7a;
+}
+
+.holding-pnl-percent {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  background: rgba(212, 184, 120, 0.12);
+  border-radius: 4px;
+  color: #d4b878;
+}
+
+.holding-pnl-percent.down {
+  background: rgba(201, 140, 122, 0.12);
+  color: #c98c7a;
+}
+
+/* ===================== MOBILE RESPONSIVENESS ===================== */
+
+/* Tablet & Small Desktop (769px - 1024px) */
+@media (max-width: 1024px) {
+  .dash-main {
+    max-width: 100%;
+  }
+
+  .hero-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-hero-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .portfolio-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+
+  .holdings-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .league-mini-cards {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .teachers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .lessons-full-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .lessons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+}
+
+/* Tablet Portrait (481px - 768px) */
+@media (max-width: 768px) {
+  .dash {
+    padding-bottom: 140px;
+  }
+
+  .dash-main {
+    padding: 16px 12px;
+    max-width: 100%;
+  }
+
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .topbar-stats {
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .ticker-track {
+    gap: 24px;
+    padding: 8px 0;
+  }
+
+  .tk {
+    font-size: 11px;
+  }
+
+  /* Grid Layouts */
+  .school-hero,
+  .league-hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .hero-content,
+  .hero-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .hero-rank-section {
+    grid-column: auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .learn-hero-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .learn-categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .portfolio-hero {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .portfolio-hero-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .portfolio-selector {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .portfolio-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .portfolio-stat-item {
+    padding: 8px;
+  }
+
+  .stat-item-label {
+    font-size: 9px;
+  }
+
+  .stat-item-value {
+    font-size: 11px;
+  }
+
+  .holdings-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .holding-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .holding-details {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  /* Hero Stats */
+  .hero-stat,
+  .league-hero .hero-stat {
+    padding: 12px;
+  }
+
+  .stat-large {
+    font-size: 28px;
+  }
+
+  .stat-huge {
+    font-size: 32px;
+  }
+
+  .metric-value {
+    font-size: 18px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .card-head {
+    margin-bottom: 12px;
+  }
+
+  .card-head h2 {
+    font-size: 14px;
+  }
+
+  /* Leaderboards */
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 40px 1fr 60px 80px;
+    gap: 12px;
+    padding: 12px;
+    font-size: 11px;
+  }
+
+  .col-rank {
+    font-size: 12px;
+  }
+
+  .trader-avatar-mini {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .trader-name-mini {
+    font-size: 12px;
+  }
+
+  .trader-handle-mini {
+    font-size: 10px;
+  }
+
+  /* Sections */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .section-header h2,
+  .section-header h3 {
+    font-size: 15px;
+  }
+
+  .section-meta {
+    font-size: 11px;
+  }
+
+  /* Grid Items */
+  .teachers-grid,
+  .traders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+  }
+
+  .league-mini-cards {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 10px;
+  }
+
+  .league-mini-card {
+    padding: 12px;
+  }
+
+  .mini-name {
+    font-size: 12px;
+  }
+
+  .lessons-full-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 10px;
+  }
+
+  .lesson-full-card {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .lesson-placeholder {
+    padding: 15px 0;
+    font-size: 12px;
+  }
+
+  .btn-lesson-card {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .lessons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+  }
+
+  .lesson-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .lesson-title {
+    font-size: 13px;
+  }
+
+  .lesson-meta {
+    font-size: 10px;
+  }
+
+  .btn-lesson {
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+
+  /* League Cards */
+  .league-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .league-name {
+    font-size: 13px;
+  }
+
+  .league-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .btn-join {
+    padding: 7px 12px;
+    font-size: 10px;
+  }
+
+  /* Discover Table */
+  .leaderboard-table {
+    border-radius: 10px;
+  }
+
+  .leaderboard-header {
+    grid-template-columns: 40px 1fr 80px 70px 80px;
+  }
+
+  .leaderboard-row {
+    grid-template-columns: 40px 1fr 80px 70px 80px;
+  }
+
+  .school-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .school-name {
+    font-size: 12px;
+  }
+
+  .col-members,
+  .col-tournament {
+    font-size: 11px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .btn-primary-small {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+
+  .btn-start-learning {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .btn-path-start {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .btn-follow {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  /* Modals */
+  .modal {
+    max-width: 90%;
+    padding: 18px;
+  }
+
+  .modal-head h3 {
+    font-size: 16px;
+  }
+
+  /* Tab Bar */
+  .tabs {
+    width: min(95%, calc(100% - 20px));
+    bottom: 14px;
+  }
+
+  .tabs-glass {
+    padding: 6px;
+  }
+
+  .tab {
+    padding: 8px 3px;
+    gap: 2px;
+  }
+
+  .tab-icon {
+    font-size: 14px;
+  }
+
+  .tab-label {
+    font-size: 9px;
+  }
+
+  /* Weakness Cards */
+  .weakpoints-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .weakness-card {
+    padding: 12px;
+  }
+
+  .weakness-priority {
+    font-size: 9px;
+  }
+
+  .weakness-name {
+    font-size: 13px;
+  }
+
+  .weakness-mastery {
+    font-size: 11px;
+  }
+
+  /* Path Items */
+  .suggested-path {
+    gap: 8px;
+  }
+
+  .path-item {
+    grid-template-columns: 28px 1fr 70px;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .path-number {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .path-lesson {
+    font-size: 12px;
+  }
+
+  .path-reason {
+    font-size: 10px;
+  }
+
+  .btn-path-start {
+    padding: 5px 10px;
+  }
+}
+
+/* Large Mobile & Small Tablet (600px - 480px) */
+@media (max-width: 680px) {
+  .topbar {
+    gap: 12px;
+  }
+
+  .topbar-brand {
+    font-size: 11px;
+  }
+
+  .topbar-stats {
+    display: none;
+  }
+
+  .topbar-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .topbar-menu {
+    right: 10px;
+    width: 200px;
+    font-size: 12px;
+  }
+
+  .ticker-track {
+    gap: 20px;
+  }
+
+  .learn-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content,
+  .hero-main {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-hero-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  }
+
+  .holdings-list {
+    grid-template-columns: 1fr;
+  }
+
+  .holding-card {
+    padding: 12px;
+  }
+
+  .league-mini-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 35px 1fr 55px 70px;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .teachers-grid,
+  .traders-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .trader-card {
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  .trader-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .trader-name {
+    font-size: 12px;
+  }
+
+  .trader-handle {
+    font-size: 10px;
+  }
+
+  .trader-stats {
+    gap: 6px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+  }
+
+  .stat-value {
+    font-size: 11px;
+  }
+
+  .lessons-full-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .lessons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .lesson-card {
+    padding: 12px;
+  }
+
+  .league-card {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  /* Modal Adjustments */
+  .modal {
+    max-width: 95%;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .modal-head {
+    margin-bottom: 14px;
+  }
+
+  .modal-head h3 {
+    font-size: 15px;
+  }
+
+  .modal-x {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+
+  .field input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .modal-back {
+    padding: 16px;
+  }
+}
+
+/* Mobile (Portrait) - 481px - 600px */
+@media (max-width: 600px) {
+  .dash {
+    padding-bottom: 150px;
+  }
+
+  .dash-main {
+    padding: 14px 10px;
+  }
+
+  .topbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .topbar-brand {
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .topbar-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .topbar-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .ticker {
+    border-bottom: 1px solid rgba(232, 213, 178, 0.04);
+  }
+
+  .ticker-track {
+    gap: 18px;
+    padding: 6px 0;
+  }
+
+  .tk {
+    font-size: 10px;
+  }
+
+  .tk b {
+    margin-right: 4px;
+  }
+
+  /* Hero Sections */
+  .school-hero,
+  .league-hero {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .hero-content,
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-stat {
+    padding: 10px;
+    gap: 4px;
+    border-radius: 10px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+  }
+
+  .stat-large {
+    font-size: 24px;
+  }
+
+  .stat-huge {
+    font-size: 28px;
+  }
+
+  .stat-time {
+    font-size: 18px;
+  }
+
+  .metric-label {
+    font-size: 9px;
+  }
+
+  .metric-value {
+    font-size: 16px;
+  }
+
+  .metric-sub {
+    font-size: 9px;
+  }
+
+  .rival-section,
+  .rival-section-league {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .rival-header {
+    font-size: 10px;
+  }
+
+  .rival-card,
+  .rival-card-league {
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+
+  .rival-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .rival-name {
+    font-size: 12px;
+  }
+
+  .rival-handle {
+    font-size: 10px;
+  }
+
+  .rival-pnl {
+    font-size: 13px;
+  }
+
+  .rival-card-league .rival-stats {
+    gap: 8px;
+  }
+
+  .rival-stat-item {
+    gap: 1px;
+  }
+
+  .rival-stat-label {
+    font-size: 8px;
+  }
+
+  .rival-stat-value {
+    font-size: 12px;
+  }
+
+  /* Leaderboards */
+  .class-leaderboard,
+  .leaderboard-table {
+    border-radius: 10px;
+    border: 1px solid rgba(232, 213, 178, 0.06);
+  }
+
+  .leaderboard-header {
+    grid-template-columns: 32px 1fr 50px 65px;
+    gap: 8px;
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  .leaderboard-rows {
+    max-height: 400px;
+  }
+
+  .leaderboard-row {
+    grid-template-columns: 32px 1fr 50px 65px;
+    gap: 8px;
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .col-rank {
+    font-size: 11px;
+  }
+
+  .trader-avatar-mini {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .trader-name-mini {
+    font-size: 11px;
+  }
+
+  .trader-handle-mini {
+    font-size: 9px;
+  }
+
+  .col-delta,
+  .col-pnl {
+    font-size: 11px;
+  }
+
+  /* Cards and Grids */
+  .card {
+    padding: 12px;
+    border-radius: 12px;
+    gap: 10px;
+  }
+
+  .card-head h2 {
+    font-size: 13px;
+  }
+
+  .card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  /* Section Headers */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-bottom: 6px;
+  }
+
+  .section-header h2,
+  .section-header h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .section-meta {
+    font-size: 10px;
+  }
+
+  /* Grid Layouts */
+  .teachers-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .teacher-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .teacher-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .teacher-name {
+    font-size: 12px;
+  }
+
+  .teacher-role {
+    font-size: 10px;
+  }
+
+  /* League Mini Cards */
+  .league-mini-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .league-mini-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .mini-header {
+    font-size: 10px;
+  }
+
+  .mini-rank {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  .mini-pnl {
+    font-size: 12px;
+  }
+
+  .mini-name {
+    font-size: 11px;
+  }
+
+  .mini-meta {
+    font-size: 9px;
+  }
+
+  .mini-delta {
+    padding: 1px 4px;
+    font-size: 9px;
+  }
+
+  /* Portfolio Page */
+  .portfolio-hero {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .portfolio-hero-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .portfolio-stat {
+    padding: 10px;
+    gap: 4px;
+    border-radius: 10px;
+  }
+
+  .portfolio-metric {
+    padding: 10px;
+    gap: 4px;
+  }
+
+  .stat-item-label {
+    font-size: 8px;
+  }
+
+  .stat-item-value {
+    font-size: 10px;
+  }
+
+  .portfolio-selector {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .portfolio-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+  .portfolio-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .portfolio-stat-item {
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  /* Holdings */
+  .holdings-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .holding-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .holding-header {
+    gap: 8px;
+  }
+
+  .holding-symbol {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+
+  .holding-price {
+    font-size: 12px;
+  }
+
+  .holding-day-change {
+    font-size: 10px;
+  }
+
+  .holding-graph {
+    height: 50px;
+    padding: 6px;
+  }
+
+  .holding-details {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .detail-label {
+    font-size: 8px;
+  }
+
+  .detail-value {
+    font-size: 10px;
+  }
+
+  .holding-pnl {
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .holding-pnl-amount {
+    font-size: 12px;
+  }
+
+  .holding-pnl-percent {
+    padding: 3px 6px;
+    font-size: 10px;
+    border-radius: 3px;
+  }
+
+  /* Lessons and Traders */
+  .lessons-full-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .lesson-full-card {
+    padding: 8px;
+    gap: 6px;
+    border-radius: 8px;
+  }
+
+  .lesson-header-full {
+    gap: 4px;
+    font-size: 8px;
+  }
+
+  .lesson-category-badge {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+
+  .lesson-mastery-badge {
+    font-size: 10px;
+  }
+
+  .lesson-placeholder {
+    padding: 12px 0;
+    font-size: 11px;
+  }
+
+  .btn-lesson-card {
+    padding: 4px 6px;
+    font-size: 9px;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .lesson-card {
+    padding: 12px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .lesson-header {
+    gap: 8px;
+  }
+
+  .lesson-category {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .lesson-difficulty {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .lesson-title {
+    font-size: 12px;
+  }
+
+  .lesson-meta {
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  .meta {
+    font-size: 9px;
+  }
+
+  .btn-lesson {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  /* Traders */
+  .traders-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .trader-card {
+    padding: 12px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .trader-rank {
+    font-size: 9px;
+    padding: 2px 6px;
+    top: 6px;
+    right: 8px;
+  }
+
+  .trader-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .trader-avatar-small {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .trader-name {
+    font-size: 11px;
+  }
+
+  .trader-handle {
+    font-size: 9px;
+  }
+
+  .trader-badge {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+
+  .trader-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .stat-label {
+    font-size: 8px;
+  }
+
+  .stat-value {
+    font-size: 10px;
+  }
+
+  .btn-follow {
+    padding: 6px 10px;
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+  /* League Cards */
+  .league-card {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .league-header {
+    gap: 8px;
+  }
+
+  .league-info {
+    gap: 2px;
+  }
+
+  .league-name {
+    font-size: 12px;
+  }
+
+  .league-level {
+    font-size: 10px;
+  }
+
+  .league-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+
+  .league-progress {
+    gap: 4px;
+  }
+
+  .progress-bar {
+    height: 5px;
+    border-radius: 2px;
+  }
+
+  .progress-text {
+    font-size: 10px;
+  }
+
+  .league-footer {
+    gap: 10px;
+    padding-top: 6px;
+  }
+
+  .league-meta {
+    gap: 8px;
+    font-size: 9px;
+  }
+
+  .meta-item {
+    gap: 2px;
+  }
+
+  .btn-join {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  /* Weakness Cards */
+  .weakpoints-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .weakness-card {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .weakness-priority {
+    font-size: 8px;
+  }
+
+  .weakness-name {
+    font-size: 12px;
+  }
+
+  .weakness-mastery {
+    font-size: 10px;
+  }
+
+  .btn-start-learning {
+    padding: 6px 10px;
+    font-size: 10px;
+    margin-top: 6px;
+  }
+
+  /* Path Items */
+  .suggested-path {
+    gap: 8px;
+  }
+
+  .path-item {
+    grid-template-columns: 26px 1fr 60px;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .path-number {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .path-content {
+    gap: 1px;
+  }
+
+  .path-lesson {
+    font-size: 11px;
+  }
+
+  .path-reason {
+    font-size: 9px;
+  }
+
+  .btn-path-start {
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  /* Learn Categories */
+  .learn-categories {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .category-card {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .category-header {
+    gap: 8px;
+  }
+
+  .category-name {
+    font-size: 12px;
+  }
+
+  .category-mastery {
+    font-size: 11px;
+  }
+
+  .category-bar {
+    height: 5px;
+    border-radius: 2px;
+  }
+
+  .category-fill {
+    border-radius: 2px;
+  }
+
+  /* Tab Bar */
+  .tabs {
+    width: min(98%, calc(100% - 10px));
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tabs-glass {
+    padding: 5px;
+    border-radius: 20px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .tabs-indicator {
+    border-radius: 16px;
+    top: 5px;
+    left: 5px;
+    width: calc((100% - 10px) / 5);
+    height: calc(100% - 10px);
+  }
+
+  .tab {
+    padding: 6px 2px;
+    gap: 1px;
+    font-size: 9px;
+    border-radius: 10px;
+  }
+
+  .tab-icon {
+    font-size: 13px;
+  }
+
+  .tab-label {
+    font-size: 8px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  .btn-primary-small {
+    padding: 6px 12px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  /* Modals */
+  .modal {
+    max-width: 95%;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .modal-head {
+    margin-bottom: 12px;
+  }
+
+  .modal-head h3 {
+    font-size: 14px;
+  }
+
+  .modal-x {
+    width: 22px;
+    height: 22px;
+    font-size: 18px;
+  }
+
+  .modal-body {
+    gap: 12px;
+  }
+
+  .field {
+    gap: 4px;
+  }
+
+  .field span {
+    font-size: 10px;
+  }
+
+  .field input {
+    padding: 9px 10px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .seg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    padding: 3px;
+    border-radius: 8px;
+  }
+
+  .seg button {
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 11px;
+  }
+
+  .modal-back {
+    padding: 12px;
+  }
+
+  /* Skill Cards */
+  .skill-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .skill {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .skill-k {
+    font-size: 9px;
+    padding: 2px 6px;
+    margin-bottom: 8px;
+  }
+
+  .skill h4 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .skill p {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  /* Rank Delta */
+  .rank-delta {
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    margin-top: 4px;
+  }
+
+  /* Discover Table Adjustments */
+  .leaderboard-row {
+    grid-template-columns: 32px 1fr 50px 65px;
+  }
+
+  .col-members,
+  .col-tournament {
+    font-size: 10px;
+  }
+
+  .school-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .school-name {
+    font-size: 11px;
+  }
+
+  /* Data Display Tables */
+  .stat-row {
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .pos th {
+    padding: 6px 0;
+    font-size: 10px;
+  }
+
+  .pos td {
+    padding: 10px 0;
+    font-size: 11px;
+  }
+}
+
+/* Extra Small Mobile (375px - 480px) */
+@media (max-width: 480px) {
+  .dash {
+    padding-bottom: 160px;
+  }
+
+  .dash-main {
+    padding: 12px 8px;
+  }
+
+  .topbar {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .topbar-brand {
+    display: flex;
+    gap: 3px;
+    font-size: 9px;
+  }
+
+  .topbar-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .topbar-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .topbar-menu {
+    right: 8px;
+    width: 180px;
+    padding: 6px;
+  }
+
+  .topbar-menu-head {
+    padding: 8px 10px 10px;
+  }
+
+  .topbar-menu-name {
+    font-size: 12px;
+  }
+
+  .topbar-menu-handle {
+    font-size: 10px;
+  }
+
+  .topbar-menu-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .ticker-track {
+    gap: 16px;
+    padding: 5px 0;
+  }
+
+  .tk {
+    font-size: 9px;
+    letter-spacing: 0.01em;
+  }
+
+  .tk b {
+    margin-right: 3px;
+  }
+
+  /* Hero Sections */
+  .school-hero,
+  .league-hero {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .hero-content,
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-stat {
+    padding: 8px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+
+  .stat-label {
+    font-size: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .stat-large {
+    font-size: 22px;
+  }
+
+  .stat-huge {
+    font-size: 24px;
+  }
+
+  .stat-time {
+    font-size: 16px;
+  }
+
+  .stat-note {
+    font-size: 8px;
+  }
+
+  .metric-label {
+    font-size: 8px;
+  }
+
+  .metric-value {
+    font-size: 15px;
+  }
+
+  .metric-sub {
+    font-size: 8px;
+  }
+
+  .rival-section,
+  .rival-section-league {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .rival-header {
+    font-size: 9px;
+  }
+
+  .rival-card,
+  .rival-card-league {
+    padding: 8px;
+    gap: 8px;
+    border-radius: 6px;
+  }
+
+  .rival-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .rival-name {
+    font-size: 11px;
+  }
+
+  .rival-handle {
+    font-size: 9px;
+  }
+
+  .rival-pnl {
+    font-size: 12px;
+  }
+
+  .rival-card-league .rival-stats {
+    gap: 6px;
+  }
+
+  .rival-stat-label {
+    font-size: 7px;
+  }
+
+  .rival-stat-value {
+    font-size: 11px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .card-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .card-head h2 {
+    font-size: 12px;
+  }
+
+  .pill {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .card-head button {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  /* Leaderboards */
+  .leaderboard-header {
+    grid-template-columns: 28px 1fr 45px 60px;
+    gap: 6px;
+    padding: 8px;
+    font-size: 8px;
+  }
+
+  .leaderboard-rows {
+    max-height: 350px;
+  }
+
+  .leaderboard-row {
+    grid-template-columns: 28px 1fr 45px 60px;
+    gap: 6px;
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .col-rank {
+    font-size: 10px;
+  }
+
+  .trader-avatar-mini {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .trader-name-mini {
+    font-size: 10px;
+  }
+
+  .trader-handle-mini {
+    font-size: 8px;
+  }
+
+  .col-delta,
+  .col-pnl {
+    font-size: 10px;
+    text-align: right;
+  }
+
+  /* Section Headers */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(232, 213, 178, 0.05);
+  }
+
+  .section-header h2,
+  .section-header h3 {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .section-meta {
+    font-size: 9px;
+  }
+
+  /* Teachers */
+  .teachers-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .teacher-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .teacher-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .teacher-name {
+    font-size: 11px;
+  }
+
+  .teacher-role {
+    font-size: 9px;
+  }
+
+  /* League Mini Cards */
+  .league-mini-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .league-mini-card {
+    padding: 8px;
+    gap: 6px;
+    border-radius: 8px;
+  }
+
+  .mini-header {
+    font-size: 9px;
+  }
+
+  .mini-rank {
+    padding: 2px 4px;
+    font-size: 8px;
+    border-radius: 4px;
+  }
+
+  .mini-pnl {
+    font-size: 11px;
+  }
+
+  .mini-name {
+    font-size: 10px;
+  }
+
+  .mini-meta {
+    font-size: 8px;
+  }
+
+  .mini-delta {
+    padding: 1px 3px;
+    font-size: 8px;
+    border-radius: 3px;
+  }
+
+  /* Portfolio */
+  .portfolio-hero {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .portfolio-hero-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .portfolio-stat {
+    padding: 8px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+
+  .portfolio-metric {
+    padding: 8px;
+    gap: 3px;
+    border-radius: 8px;
+  }
+
+  .stat-item-label {
+    font-size: 7px;
+  }
+
+  .stat-item-value {
+    font-size: 9px;
+  }
+
+  .portfolio-selector {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .portfolio-btn {
+    padding: 6px 8px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+
+  .portfolio-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .portfolio-stat-item {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  /* Holdings */
+  .holdings-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .holding-card {
+    padding: 8px;
+    gap: 6px;
+    border-radius: 8px;
+  }
+
+  .holding-header {
+    gap: 6px;
+  }
+
+  .holding-symbol {
+    padding: 3px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+  }
+
+  .holding-price {
+    font-size: 11px;
+  }
+
+  .holding-day-change {
+    font-size: 9px;
+  }
+
+  .holding-graph {
+    height: 45px;
+    padding: 4px;
+    border-radius: 6px;
+  }
+
+  .holding-details {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    font-size: 8px;
+  }
+
+  .detail-label {
+    font-size: 7px;
+  }
+
+  .detail-value {
+    font-size: 9px;
+  }
+
+  .holding-pnl {
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+  .holding-pnl-amount {
+    font-size: 11px;
+  }
+
+  .holding-pnl-percent {
+    padding: 2px 4px;
+    font-size: 9px;
+    border-radius: 3px;
+  }
+
+  /* Lessons */
+  .lessons-full-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .lesson-full-card {
+    padding: 6px;
+    gap: 4px;
+    border-radius: 6px;
+  }
+
+  .lesson-header-full {
+    gap: 2px;
+  }
+
+  .lesson-category-badge {
+    font-size: 7px;
+    padding: 1px 3px;
+    border-radius: 3px;
+  }
+
+  .lesson-mastery-badge {
+    font-size: 9px;
+  }
+
+  .lesson-placeholder {
+    padding: 10px 0;
+    font-size: 10px;
+  }
+
+  .btn-lesson-card {
+    padding: 3px 4px;
+    font-size: 8px;
+    border-radius: 4px;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .lesson-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .lesson-header {
+    gap: 6px;
+  }
+
+  .lesson-category {
+    font-size: 8px;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  .lesson-difficulty {
+    font-size: 8px;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  .lesson-title {
+    font-size: 11px;
+  }
+
+  .lesson-meta {
+    font-size: 8px;
+    gap: 4px;
+  }
+
+  .meta {
+    font-size: 8px;
+  }
+
+  .btn-lesson {
+    padding: 5px 8px;
+    font-size: 9px;
+    border-radius: 6px;
+  }
+
+  /* Traders */
+  .traders-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .trader-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .trader-rank {
+    font-size: 8px;
+    padding: 1px 4px;
+    top: 4px;
+    right: 6px;
+  }
+
+  .trader-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .trader-avatar-small {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .trader-name {
+    font-size: 10px;
+  }
+
+  .trader-handle {
+    font-size: 8px;
+  }
+
+  .trader-badge {
+    font-size: 7px;
+    padding: 1px 4px;
+    border-radius: 4px;
+  }
+
+  .trader-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .stat-label {
+    font-size: 7px;
+  }
+
+  .stat-value {
+    font-size: 9px;
+  }
+
+  .btn-follow {
+    padding: 5px 8px;
+    font-size: 8px;
+    margin-top: 2px;
+    border-radius: 6px;
+  }
+
+  /* League Cards */
+  .league-card {
+    padding: 10px;
+    gap: 8px;
+    border-radius: 8px;
+  }
+
+  .league-header {
+    gap: 6px;
+  }
+
+  .league-info {
+    gap: 2px;
+  }
+
+  .league-name {
+    font-size: 11px;
+  }
+
+  .league-level {
+    font-size: 9px;
+  }
+
+  .league-badge {
+    padding: 3px 6px;
+    font-size: 9px;
+    border-radius: 4px;
+  }
+
+  .league-progress {
+    gap: 3px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .progress-text {
+    font-size: 9px;
+  }
+
+  .league-footer {
+    gap: 8px;
+    padding-top: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .league-meta {
+    gap: 6px;
+    font-size: 8px;
+    width: 100%;
+  }
+
+  .meta-item {
+    gap: 2px;
+  }
+
+  .btn-join {
+    padding: 5px 8px;
+    font-size: 8px;
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  /* Weakness */
+  .weakpoints-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .weakness-card {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .weakness-priority {
+    font-size: 7px;
+  }
+
+  .weakness-name {
+    font-size: 11px;
+  }
+
+  .weakness-mastery {
+    font-size: 9px;
+  }
+
+  .btn-start-learning {
+    padding: 5px 8px;
+    font-size: 9px;
+    margin-top: 4px;
+  }
+
+  /* Path */
+  .suggested-path {
+    gap: 6px;
+  }
+
+  .path-item {
+    grid-template-columns: 24px 1fr 50px;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .path-number {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .path-content {
+    gap: 1px;
+  }
+
+  .path-lesson {
+    font-size: 10px;
+  }
+
+  .path-reason {
+    font-size: 8px;
+  }
+
+  .btn-path-start {
+    padding: 3px 6px;
+    font-size: 8px;
+    border-radius: 4px;
+  }
+
+  /* Learn Categories */
+  .learn-categories {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .category-card {
+    padding: 8px;
+    gap: 4px;
+  }
+
+  .category-header {
+    gap: 6px;
+  }
+
+  .category-name {
+    font-size: 11px;
+  }
+
+  .category-mastery {
+    font-size: 10px;
+  }
+
+  .category-bar {
+    height: 4px;
+  }
+
+  /* Tab Bar */
+  .tabs {
+    width: min(100%, calc(100% - 8px));
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tabs-glass {
+    padding: 4px;
+    border-radius: 18px;
+  }
+
+  .tabs-indicator {
+    border-radius: 14px;
+    top: 4px;
+    left: 4px;
+    width: calc((100% - 8px) / 5);
+    height: calc(100% - 8px);
+  }
+
+  .tab {
+    padding: 5px 1px;
+    gap: 1px;
+    font-size: 8px;
+    border-radius: 8px;
+  }
+
+  .tab-icon {
+    font-size: 12px;
+  }
+
+  .tab-label {
+    font-size: 7px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    padding: 9px 10px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .btn-primary-small {
+    padding: 5px 10px;
+    font-size: 9px;
+  }
+
+  /* Modals */
+  .modal {
+    max-width: 95%;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .modal-head {
+    margin-bottom: 10px;
+  }
+
+  .modal-head h3 {
+    font-size: 13px;
+  }
+
+  .modal-x {
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+  }
+
+  .modal-body {
+    gap: 10px;
+  }
+
+  .field {
+    gap: 3px;
+  }
+
+  .field span {
+    font-size: 9px;
+  }
+
+  .field input {
+    padding: 8px 9px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .field input::placeholder {
+    font-size: 12px;
+  }
+
+  .seg {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 2px;
+    border-radius: 6px;
+  }
+
+  .seg button {
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+
+  .modal-back {
+    padding: 10px;
+  }
+
+  /* Skills */
+  .skill-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .skill {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .skill-k {
+    font-size: 8px;
+    padding: 2px 4px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+  }
+
+  .skill h4 {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .skill p {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .rank-delta {
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  /* Data Tables */
+  .stat-row {
+    padding: 8px 0;
+    font-size: 11px;
+    border-bottom: 1px solid rgba(232, 213, 178, 0.04);
+  }
+
+  .pos th {
+    padding: 5px 0;
+    font-size: 9px;
+  }
+
+  .pos td {
+    padding: 8px 0;
+    font-size: 10px;
+  }
+}
