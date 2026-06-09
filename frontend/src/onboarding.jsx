@@ -40,27 +40,13 @@ const FEED_TEMPLATES = [
 ];
 
 const TICKER = [
-  { s: "AAPL", p: "+1.24%" },
-  { s: "NVDA", p: "+3.12%" },
-  { s: "TSLA", p: "-0.86%" },
-  { s: "MSFT", p: "+0.42%" },
-  { s: "AMZN", p: "+0.91%" },
-  { s: "META", p: "-1.18%" },
-  { s: "GOOGL", p: "+0.55%" },
-  { s: "BRK.B", p: "+0.21%" },
-  { s: "JPM", p: "-0.34%" },
-  { s: "V", p: "+0.78%" },
-  { s: "SHOP", p: "+2.41%" },
-  { s: "BABA", p: "-1.92%" },
-  { s: "TSM", p: "+1.65%" },
-  { s: "ASML", p: "+0.88%" },
-  { s: "NFLX", p: "+1.04%" },
-  { s: "ORCL", p: "+0.60%" },
-  { s: "XOM", p: "+0.30%" },
-  { s: "CVX", p: "+0.18%" },
-  { s: "IBM", p: "-0.05%" },
-  { s: "DIS", p: "+1.14%" },
-  { s: "BIIB", p: "-0.72%" },
+  { s: "AAPL", p: "+1.24%" }, { s: "NVDA", p: "+3.12%" }, { s: "TSLA", p: "-0.86%" },
+  { s: "MSFT", p: "+0.42%" }, { s: "AMZN", p: "+0.91%" }, { s: "META", p: "-1.18%" },
+  { s: "GOOGL", p: "+0.55%" }, { s: "BRK.B", p: "+0.21%" }, { s: "JPM", p: "-0.34%" },
+  { s: "V", p: "+0.78%" }, { s: "SHOP", p: "+2.41%" }, { s: "BABA", p: "-1.92%" },
+  { s: "TSM", p: "+1.65%" }, { s: "ASML", p: "+0.88%" }, { s: "NFLX", p: "+1.04%" },
+  { s: "ORCL", p: "+0.60%" }, { s: "XOM", p: "+0.30%" }, { s: "CVX", p: "+0.18%" },
+  { s: "IBM", p: "-0.05%" }, { s: "DIS", p: "+1.14%" }, { s: "BIIB", p: "-0.72%" },
   { s: "LULU", p: "+2.05%" },
 ];
 
@@ -74,79 +60,63 @@ const SKILLS = [
 ];
 
 const CONCEPTS = [
-  { f: "P/E", b: "Price-to-Earnings", d: "What multiple is the market paying for $1 of earnings—and is it justified or overheated? High = big expectations; low = cheap or struggling. Best used to compare similar companies." },
-  { f: "β", b: "Beta", d: "How wild is this stock compared to the market? 1 = market-like, >1 = more volatile, <1 = calmer. Tells you how much it might swing." },
-  { f: "σ", b: "Standard deviation", d: "How bumpy is the ride? Higher = bigger swings, lower = smoother returns. It’s your volatility meter." },
-  { f: "α", b: "Alpha", d: "Did you actually beat the market—or just get lucky? Positive = outperformance, negative = underperformance. Measures real skill." },
-  { f: "DD", b: "Drawdown", d: "How bad did it get at the worst point? Peak → bottom loss during a period. Shows the pain you’d have felt holding it." },
-  { f: "SR", b: "Sharpe ratio", d: "How much return are you getting per unit of risk? Higher = more efficient investing. Separates skill from just taking big risks." },
-  { f: "DY", b: "Dividend yield", d: "The annual dividends paid by a company relative to its stock price. Indicates the income generated from holding the stock." },
-  { f: "MC", b: "Market cap", d: "The total value of a company's outstanding shares. A measure of the company's size and value." },
-  { f: "VL", b: "Volume", d: "The total number of shares traded during a specific period. Indicates the level of interest and activity in the stock." },
+  { f: "P/E", b: "Price-to-Earnings", d: "What multiple is the market paying for $1 of earnings—and is it justified or overheated? High = big expectations; low = cheap or struggling." },
+  { f: "β", b: "Beta", d: "How wild is this stock vs the market? 1 = market-like, >1 = more volatile, <1 = calmer. Tells you how much it might swing." },
+  { f: "σ", b: "Standard deviation", d: "How bumpy is the ride? Higher = bigger swings, lower = smoother returns. Your volatility meter." },
+  { f: "α", b: "Alpha", d: "Did you actually beat the market—or just get lucky? Positive = outperformance, negative = underperformance." },
+  { f: "DD", b: "Drawdown", d: "How bad did it get at the worst point? Peak → bottom loss during a period. Shows the pain of holding." },
+  { f: "SR", b: "Sharpe ratio", d: "How much return per unit of risk? Higher = more efficient. Separates skill from just taking big risks." },
+  { f: "DY", b: "Dividend yield", d: "Annual dividends paid relative to stock price. The income generated from holding the stock." },
+  { f: "MC", b: "Market cap", d: "Total value of a company's outstanding shares. A measure of its size and weight." },
+  { f: "VL", b: "Volume", d: "Total shares traded during a period. Indicates the level of interest and activity in the stock." },
 ];
 
 const VOICES = [
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · Rank #3" },
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · 4 leagues" },
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · Rank #2" },
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · Rank #5" },
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · Rank #7" },
-  { q: "Can I have Chipotle for dinner please?", n: "Aditya", r: "Something · 2 leagues" },
+  { q: "I learned more about how economies work in two leagues than 6 years of school.", n: "Sahil G.", r: "6th Grader · Rank #4/37" },
+  { q: "I was never able to memorize how to calculate PnL or DY, but Quantis helped me understand how to use them to MAKE calculated decisions.", n: "Shourya K.", r: "9th Grader · 2x Texas Podium" },
+  { q: "I kept coming back for the streaks and challenges but somehow ended up learning real financial analytics.", n: "Arush S.", r: "11th Grade Athlete · District Champion" },
+  { q: "Quantis taught me that the stock market is not a game of luck, but a tournament of skill.", n: "Arjun R.", r: "Incoming @UT · Ω League 3rd" },
+  { q: "Quantis helped me gain usable understanding of how to grow wealth over weeks, months, and years.", n: "Aditya", r: "8th Grader · Λ League 1st" },
+  { q: "Quantis taught me that every single action is connected in business, and understanding why changes the game.", n: "Neer", r: "10th Grader · League Organizer" },
 ];
 
 const FAQ = [
-  { q: "Is it real money?", a: "No. Every player starts with $100,000 in virtual cash. The stakes are your rank, not your wallet — which turns out to be plenty motivating." },
+  { q: "Is it real money?", a: "No. Every player starts with $100,000 in virtual cash. The stakes are your rank, not your wallet — plenty motivating." },
   { q: "Where do prices come from?", a: "Real tickers across 120 markets, driven by a stochastic price engine calibrated to real volatility. It ticks between market hours so there's always something to react to." },
-  { q: "How does the rival system work?", a: "Each week you're paired with one player of similar rank. Beat them and you climb; lose and they take your spot. The leaderboard is the league; the rival is the rivalry." },
-  { q: "Is it free for schools?", a: "Yes. School leagues are free for educators during beta. Spin up a private league for your class, club, or whole year group in minutes." },
+  { q: "How does the rival system work?", a: "Each week you're paired with one player of similar rank. Beat them and you climb; lose and they take your spot." },
+  { q: "Is it free for schools?", a: "Yes. School leagues are free for educators during beta. Spin up a private league for your class, club, or year group in minutes." },
   { q: "When does a week reset?", a: "Friday 16:00. Winners are announced, rankings lock, and a fresh battle opens Monday. Season totals carry across weeks." },
+  { q: "Do I need finance experience?", a: "No. Most players start cold. The leaderboard surfaces concepts exactly when your portfolio needs them — you learn by losing rank, then by climbing back." },
+  { q: "Can I play on my phone?", a: "Yes. Quantis is mobile-first. Most weekly cycles are checked between classes, on the bus, or right before market close." },
+  { q: "How big is a league?", a: "50 players per cohort. Small enough to know who you're chasing, large enough that the top spots feel earned." },
 ];
 
 function buildEnginePath(w, h, seed = 0) {
   const pts = [];
-  let v = 100;
-  let momentum = 0;
-  let volatility = 0.6;
-
+  let v = 100, momentum = 0, volatility = 0.6;
   for (let i = 0; i < 220; i++) {
     const t = i + seed;
-    const lowFreq = Math.sin(t * 0.05) * 1.2 + Math.cos(t * 0.03) * 0.8;
-    const midFreq = Math.sin(t * 0.15) * 0.5 + Math.cos(t * 0.12) * 0.4;
-    const highFreq = Math.sin(t * 0.4) * 0.15;
-    const noise = lowFreq + midFreq + highFreq;
-
-    volatility += Math.sin(t * 0.02) * 0.02;
-    volatility = Math.max(0.3, Math.min(1.2, volatility));
-
+    const noise = Math.sin(t * 0.05) * 1.2 + Math.cos(t * 0.03) * 0.8 + Math.sin(t * 0.15) * 0.5 + Math.cos(t * 0.12) * 0.4 + Math.sin(t * 0.4) * 0.15;
+    volatility = Math.max(0.3, Math.min(1.2, volatility + Math.sin(t * 0.02) * 0.02));
     momentum = momentum * 0.85 + noise * 0.15;
     v += momentum * volatility + 0.03;
     pts.push(v);
   }
-
-  const smoothPts = pts.map((_, i, arr) => {
-    const prev = arr[i - 1] ?? arr[i];
-    const curr = arr[i];
-    const next = arr[i + 1] ?? arr[i];
-    return (prev + curr * 2 + next) / 4;
-  });
-
-  const min = Math.min(...smoothPts);
-  const max = Math.max(...smoothPts);
-  const range = max - min || 1;
-
-  return smoothPts
-    .map((p, i) => {
-      const x = (i / (smoothPts.length - 1)) * w;
-      const y = h - ((p - min) / range) * (h - 20) - 10;
-      return `${x},${y}`;
-    })
-    .join(" ");
+  const smooth = pts.map((_, i, a) => ((a[i - 1] ?? a[i]) + a[i] * 2 + (a[i + 1] ?? a[i])) / 4);
+  const min = Math.min(...smooth), max = Math.max(...smooth), range = max - min || 1;
+  return smooth.map((p, i) => `${(i / (smooth.length - 1)) * w},${h - ((p - min) / range) * (h - 20) - 10}`).join(" ");
 }
 
 export default function Onboarding() {
   const navigate = useNavigate();
   const [feed, setFeed] = useState([]);
   const [seed, setSeed] = useState(0);
+  const [showTransition, setShowTransition] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowTransition(false), 4200);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     let id = 0;
@@ -156,19 +126,16 @@ export default function Onboarding() {
     };
     setFeed(FEED_TEMPLATES.slice(0, 9).map((line) => ({ line, time: stamp(), id: id++ })));
     const t = setInterval(() => {
-      setFeed((prev) =>
-        [
-          { line: FEED_TEMPLATES[Math.floor(Math.random() * FEED_TEMPLATES.length)], time: stamp(), id: id++ },
-          ...prev,
-        ].slice(0, 9)
-      );
+      setFeed((prev) => [
+        { line: FEED_TEMPLATES[Math.floor(Math.random() * FEED_TEMPLATES.length)], time: stamp(), id: id++ },
+        ...prev,
+      ].slice(0, 9));
     }, 2400);
     return () => clearInterval(t);
   }, []);
 
   useEffect(() => {
-    let frame;
-    let start;
+    let frame, start;
     const loop = (t) => {
       if (!start) start = t;
       setSeed((t - start) * 0.02);
@@ -178,23 +145,19 @@ export default function Onboarding() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  useEffect(() => {
-    const onMove = (e) => {
-      document.documentElement.style.setProperty("--qz-cx", `${e.clientX}px`);
-      document.documentElement.style.setProperty("--qz-cy", `${e.clientY}px`);
-    };
-    window.addEventListener("pointermove", onMove);
-    return () => window.removeEventListener("pointermove", onMove);
-  }, []);
 
-  const W = 460;
-  const H = 240;
+  const W = 460, H = 240;
   const path = buildEnginePath(W, H, seed);
   const go = () => navigate("/signup");
 
   return (
     <div className="qz">
-      <div className="qz-cursor-glow" aria-hidden />
+      {showTransition && (
+        <div className="qz-screen-transition" aria-hidden>
+          <div className="qz-screen-line" />
+        </div>
+      )}
+      <MoleculeBg />
       <div className="qz-aurora" aria-hidden>
         <span className="qz-aurora-blob a" />
         <span className="qz-aurora-blob b" />
@@ -212,14 +175,11 @@ export default function Onboarding() {
             <span className="qz-tag">Gamified literacy</span>
           </div>
           <div className="qz-nav-actions">
-            <button
-              className="qz-btn--invert"
-              onClick={() => navigate("/auth")}
-            >
+            <button className="qz-btn--invert" onClick={() => navigate("/auth")}>
               Sign in <span className="qz-btn-arrow">→</span>
             </button>
             <button className="qz-btn" onClick={() => navigate("/signup")}>
-              Sign up<span className="qz-btn-arrow">→</span>
+              Sign up <span className="qz-btn-arrow">→</span>
             </button>
           </div>
         </div>
@@ -232,6 +192,7 @@ export default function Onboarding() {
             <span className="qz-ticker-item" key={i}>
               <span className="qz-ticker-s">{t.s}</span>
               <span className={`qz-ticker-p ${t.p.startsWith("-") ? "qz-down" : ""}`}>{t.p}</span>
+              <Sparkline up={!t.p.startsWith("-")} />
             </span>
           ))}
         </div>
@@ -252,10 +213,7 @@ export default function Onboarding() {
               <span className="qz-word d3 accent">competition.</span>
             </h1>
             <p className="qz-lede">
-              Quantis turns financial literacy into a status game. Same starting cash, 15,000 real
-              tickers across 120 international markets, and a stochastic price engine that runs around
-              the clock. You learn risk, diversification, volatility, and behaviour — not because a
-              teacher said so, but because the leaderboard is watching.
+              Quantis turns financial education into a game of rank. Every week, you and 49 other players are placed against each other in a clash of portfolios. The catch? The only way to climb the leaderboard is to out-invest your rivals — which means you learn by doing, and you remember by competing.
             </p>
             <div className="qz-cta-row">
               <button className="qz-btn qz-btn-lg" onClick={go}>
@@ -284,8 +242,7 @@ export default function Onboarding() {
           <p className="qz-lede-2">
             Traditional finance education teaches concepts in isolation — diversification on Monday,
             volatility on Wednesday, behavioural bias never. Quantis flips it: you compete first, and
-            the concepts arrive exactly when your portfolio needs them. The lesson lands because the
-            stakes — your rank — feel real.
+            the concepts arrive exactly when your portfolio needs them.
           </p>
           <div className="qz-skills">
             {SKILLS.map((s, i) => (
@@ -325,8 +282,7 @@ export default function Onboarding() {
             <p>
               Build a portfolio from real tickers across NYSE, NASDAQ, LSE, TSE, HKEX, Euronext, ASX
               and 113 more international exchanges. Behind it all runs a quantitative stochastic price
-              simulation — calibrated to real volatility — that drives constant action between market
-              hours.
+              simulation — calibrated to real volatility — that drives constant action between market hours.
             </p>
             <div className="qz-tiles">
               <div className="qz-tile"><div className="k">15K</div><div className="v">Tickers</div></div>
@@ -347,7 +303,11 @@ export default function Onboarding() {
                     <stop offset="0%" stopColor="#d6c6a6" stopOpacity="0.32" />
                     <stop offset="100%" stopColor="#d6c6a6" stopOpacity="0" />
                   </linearGradient>
+                  <pattern id="qzGrid" width="46" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 46 0 L 0 0 0 40" fill="none" stroke="rgba(214,198,166,0.08)" strokeWidth="0.5"/>
+                  </pattern>
                 </defs>
+                <rect width={W} height={H} fill="url(#qzGrid)" />
                 <polyline className="qz-engine-fill" points={`0,${H} ${path} ${W},${H}`} fill="url(#qzFill)" stroke="none" />
                 <polyline className="qz-engine-line" points={path} fill="none" stroke="#d6c6a6" strokeWidth="2" />
               </svg>
@@ -397,7 +357,6 @@ export default function Onboarding() {
                     <span>{item.line}</span>
                   </li>
                 ))}
-                {feed.length === 5 && <li>connecting…</li>}
               </ul>
             </div>
           </div>
@@ -411,8 +370,7 @@ export default function Onboarding() {
           <h2 className="qz-h2">One fixed rival. Every week. <span className="accent">Personal.</span></h2>
           <p className="qz-lede-2">
             Every player gets paired with one other player of similar rank. Beat them and you climb.
-            Lose to them and they take your spot. The leaderboard is the league; the rival is the
-            rivalry.
+            Lose and they take your spot.
           </p>
 
           <div className="qz-rival-grid">
@@ -434,14 +392,14 @@ export default function Onboarding() {
         </div>
       </section>
 
-      {/* LOOP — steps */}
+      {/* LOOP */}
       <section className="qz-section" id="loop">
         <div className="qz-wrap">
           <span className="qz-section-label">03 — The loop</span>
           <h2 className="qz-h2">A weekly cycle, built to be checked daily.</h2>
           <div className="qz-steps">
             {[
-              { n: "01", t: "Same start", d: "Every player in your league gets $100,000 in virtual cash and access to all 15,000 tickers." },
+              { n: "01", t: "Same start", d: "Every player gets $100,000 in virtual cash and access to all 15,000 tickers." },
               { n: "02", t: "Constant moves", d: "A stochastic price engine ticks between real market hours. Trade when it makes sense — or hold." },
               { n: "03", t: "Rank shifts", d: "The leaderboard recalculates continuously. Your rival, the top 10, and your distance to next." },
               { n: "04", t: "Week locks", d: "Friday 16:00 the week closes. Winners are announced. Rankings reset. New battle Monday." },
@@ -458,37 +416,46 @@ export default function Onboarding() {
         </div>
       </section>
 
-      {/* VOICES (added) */}
+      {/* VOICES */}
       <section className="qz-section" id="voices">
         <div className="qz-wrap">
           <span className="qz-section-label">From the board</span>
           <h2 className="qz-h2">What players — and teachers — <span className="accent">actually say.</span></h2>
-        </div>
-        <div className="qz-voices">
-          <div className="qz-voices-track">
-            {[...VOICES, ...VOICES].map((v, i) => (
-              <figure className="qz-voice" key={i}>
-                <blockquote>“{v.q}”</blockquote>
-                <figcaption>
-                  <span className="nm">{v.n}</span>
-                  <span className="rl">{v.r}</span>
-                </figcaption>
-              </figure>
-            ))}
+
+          <div className="qz-voices">
+            <div className="qz-voices-track">
+              {[...VOICES, ...VOICES].map((v, i) => (
+                <figure className="qz-voice" key={i}>
+                  <blockquote>“{v.q}”</blockquote>
+                  <figcaption>
+                    <span className="nm">{v.n}</span>
+                    <span className="rl">{v.r}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ (added) */}
+      {/* FAQ */}
       <section className="qz-section" id="faq">
-        <div className="qz-wrap qz-faq-grid">
-          <div>
-            <span className="qz-section-label">Questions</span>
-            <h2 className="qz-h2">Everything before you join.</h2>
+        <div className="qz-wrap">
+          <div className="qz-faq-top">
+            <div>
+              <span className="qz-section-label">Questions</span>
+              <h2 className="qz-h2">Everything before you join.</h2>
+            </div>
+            <div className="qz-faq-stats">
+              <div><div className="k">50</div><div className="v">per cohort</div></div>
+              <div><div className="k">$100K</div><div className="v">virtual capital</div></div>
+              <div><div className="k">Fri 16:00</div><div className="v">weekly close</div></div>
+              <div><div className="k">Free</div><div className="v">for schools</div></div>
+            </div>
           </div>
-          <div className="qz-faq">
+          <div className="qz-faq qz-faq-dense">
             {FAQ.map((item, i) => (
-              <Reveal as="div" delay={i * 50} key={item.q}>
+              <Reveal as="div" delay={i * 40} key={item.q}>
                 <FaqItem item={item} />
               </Reveal>
             ))}
@@ -505,8 +472,7 @@ export default function Onboarding() {
               <h2 className="qz-h2">Two ways to play. <span className="accent">One leaderboard mentality.</span></h2>
               <p className="qz-lede-2">
                 Join an individual league and get matched into a global cohort instantly, or spin up a
-                school league for your class, club, or year group. Same engine, same weekly cycle, same
-                hunger for rank.
+                school league for your class, club, or year group.
               </p>
 
               <div className="qz-league-grid">
@@ -548,6 +514,90 @@ export default function Onboarding() {
         </div>
       </footer>
     </div>
+  );
+}
+
+/* ---------- molecule particle background ---------- */
+function MoleculeBg() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let raf, w, h;
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => {
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = w * DPR;
+      canvas.height = h * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const count = Math.min(180, Math.floor((window.innerWidth * window.innerHeight) / 12000));
+    const pts = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: Math.random() * 2.0 + 0.9,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+      // links
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const a = pts[i], b = pts[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 220 * 220) {
+            const alpha = (1 - d2 / (220 * 220)) * 0.28;
+            ctx.strokeStyle = `rgba(214,198,166,${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      // nodes
+      for (const p of pts) {
+        ctx.fillStyle = "rgba(214,198,166,0.72)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "rgba(214,198,166,0.14)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+  return <canvas ref={ref} className="qz-molecule" aria-hidden />;
+}
+
+function Sparkline({ up }) {
+  const pts = useRef(Array.from({ length: 12 }, () => 8 + Math.random() * 8)).current;
+  const d = pts.map((y, i) => `${i * 4},${y}`).join(" ");
+  return (
+    <svg className="qz-spark" viewBox="0 0 44 20" preserveAspectRatio="none">
+      <polyline points={d} fill="none" stroke={up ? "#d6c6a6" : "#c97a5a"} strokeWidth="1.2" />
+    </svg>
   );
 }
 
@@ -606,14 +656,11 @@ function TiltCard({ children }) {
       el.removeEventListener("mouseleave", onLeave);
     };
   }, []);
-  return (
-    <div className="qz-tilt" ref={ref}>
-      {children}
-    </div>
-  );
+  return <div className="qz-tilt" ref={ref}>{children}</div>;
 }
 
 function HeroCard() {
+  const path = buildEnginePath(280, 70, 5);
   return (
     <div className="qz-hero-card">
       <div className="qz-card-shine" aria-hidden />
@@ -628,51 +675,34 @@ function HeroCard() {
             <div className="qz-rank">#7</div>
             <span className="qz-rank-delta">▲ 4 since yesterday</span>
           </div>
-          <div>
+          <div className="qz-hero-right">
             <div className="qz-meta">Weekly return</div>
             <div className="qz-return">+5.74%</div>
             <div className="qz-cash">$105,740 / $100,000</div>
+            
+<svg className="qz-hero-spark" viewBox="0 0 280 70" preserveAspectRatio="none">              <defs>
+                <linearGradient id="qzHF" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#d6c6a6" stopOpacity="0.4"/>
+                  <stop offset="100%" stopColor="#d6c6a6" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+              <polyline points={`0,70 ${path} 280,70`} fill="url(#qzHF)" stroke="none" />
+              <polyline points={path} fill="none" stroke="#d6c6a6" strokeWidth="1.6" />
+            </svg>
           </div>
         </div>
-        {/* Inserted block below */}
+
         <div className="qz-school-sim">
           <div className="qz-meta">Cedar Park High · Market Metrics Overlay</div>
-
           <div className="qz-school-grid">
-            <div className="qz-school-item">
-              <span className="k">P/E Ratio</span>
-              <span className="v">18.4</span>
-            </div>
-
-            <div className="qz-school-item">
-              <span className="k">Beta</span>
-              <span className="v">1.32</span>
-            </div>
-
-            <div className="qz-school-item">
-              <span className="k">Standard Deviation</span>
-              <span className="v">12.6%</span>
-            </div>
-
-            <div className="qz-school-item">
-              <span className="k">Drawdown</span>
-              <span className="v">-8.4%</span>
-            </div>
-
-            <div className="qz-school-item">
-              <span className="k">Sharpe Ratio</span>
-              <span className="v">1.18</span>
-            </div>
-
-            <div className="qz-school-item">
-              <span className="k">Alpha</span>
-              <span className="v">+2.7%</span>
-            </div>
-
-            
+            <div className="qz-school-item"><span className="k">P/E Ratio</span><span className="v">18.4</span></div>
+            <div className="qz-school-item"><span className="k">Beta</span><span className="v">1.32</span></div>
+            <div className="qz-school-item"><span className="k">Std Dev</span><span className="v">12.6%</span></div>
+            <div className="qz-school-item"><span className="k">Drawdown</span><span className="v">-8.4%</span></div>
+            <div className="qz-school-item"><span className="k">Sharpe</span><span className="v">1.18</span></div>
+            <div className="qz-school-item"><span className="k">Alpha</span><span className="v">+2.7%</span></div>
           </div>
         </div>
-        {/* End inserted block */}
       </div>
 
       <div className="qz-next">
@@ -720,7 +750,7 @@ function ConceptCard({ c }) {
         <div className="qz-concept-face front">
           <div className="qz-concept-sym">{c.f}</div>
           <div className="qz-concept-name">{c.b}</div>
-          <div className="qz-concept-hint">hover</div>
+          <div className="qz-concept-hint"></div>
         </div>
         <div className="qz-concept-face back">
           <div className="qz-concept-name">{c.b}</div>
@@ -764,8 +794,7 @@ function BoardRow({ row }) {
         {row.delta === 0 ? "–" : `${up ? "▲" : "▼"} ${Math.abs(row.delta)}`}
       </span>
       <span className={`qz-pnl ${row.pnl >= 0 ? "qz-up" : "qz-down"}`}>
-        {row.pnl >= 0 ? "+" : ""}
-        {row.pnl.toFixed(2)}%
+        {row.pnl >= 0 ? "+" : ""}{row.pnl.toFixed(2)}%
       </span>
     </div>
   );
@@ -784,20 +813,56 @@ function RivalCard({ you, name, handle, rank, pnl, delta }) {
         </div>
         <span className={`qz-rival-tag ${you ? "you" : ""}`}>{you ? "you" : "rival"}</span>
       </div>
-      <div className="qz-rival-stats">
-        <div>
-          <div className="lbl">Rank</div>
-          <div className="val">#{rank}</div>
+      <div
+        className="qz-rival-grid-metrics"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: '10px',
+          width: '100%'
+        }}
+      >
+        {/* Four main metric cards */}
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Rank</span>
+          <span className="v qz-school-v">#{rank}</span>
         </div>
-        <div>
-          <div className="lbl">Return</div>
-          <div className={`val mono ${pnl >= 0 ? "qz-up" : "qz-down"}`}>{pnl >= 0 ? "+" : ""}{pnl.toFixed(2)}%</div>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Return</span>
+          <span className={`v qz-school-v ${pnl >= 0 ? "qz-up" : "qz-down"}`}>
+            {pnl >= 0 ? "+" : ""}{pnl.toFixed(2)}%
+          </span>
         </div>
-        <div>
-          <div className="lbl">Δ 24h</div>
-          <div className={`val mono ${delta > 0 ? "qz-up" : delta < 0 ? "qz-down" : "qz-mut"}`}>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Δ 24h</span>
+          <span className={`v qz-school-v ${delta > 0 ? "qz-up" : delta < 0 ? "qz-down" : "qz-mut"}`}>
             {delta === 0 ? "–" : `${delta > 0 ? "▲" : "▼"}${Math.abs(delta)}`}
-          </div>
+          </span>
+        </div>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Portfolio</span>
+          <span className="v qz-school-v">${(100000 * (1 + pnl / 100)).toLocaleString()}</span>
+        </div>
+        {/* The five metric cards previously inside qz-rival-extra */}
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Win Probability</span>
+          <span className="v qz-school-v">{you ? "61%" : "39%"}</span>
+        </div>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Weekly Streak</span>
+          <span className="v qz-school-v">{you ? "W3" : "L1"}</span>
+        </div>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Rival Record</span>
+          <span className="v qz-school-v">{you ? "8–4" : "7–5"}</span>
+        </div>
+        <div className="qz-rival-metric qz-school-item qz-school-item-accent" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">Pred. Placement</span>
+          <span className="v qz-school-v">{you ? "Λ #11 · L6" : "Η #7 · L4"}</span>
+        </div>
+        <div className="qz-rival-metric qz-school-item" style={{ width: '100%', minWidth: 0 }}>
+          <span className="k qz-school-k">League Pts</span>
+          <span className="v qz-school-v">{you ? "184" : "201"}</span>
         </div>
       </div>
     </div>
@@ -811,12 +876,7 @@ function useReveal() {
     if (!ref.current) return;
     const node = ref.current;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShown(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { setShown(true); observer.disconnect(); } },
       { threshold: 0.15 }
     );
     observer.observe(node);
@@ -829,8 +889,7 @@ function useCountUp(target, duration, start) {
   const [value, setValue] = useState(0);
   useEffect(() => {
     if (!start) return;
-    let startTime = null;
-    let frame;
+    let startTime = null, frame;
     const tick = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);

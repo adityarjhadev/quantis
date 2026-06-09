@@ -62,3 +62,10 @@ export function getCurrentUser() {
 export function logout() {
   localStorage.removeItem(CURRENT_USER_KEY);
 }
+
+// Removes all stored user credentials and the current user marker from localStorage.
+// Useful for quickly clearing test accounts during development.
+export function clearAuthData() {
+  localStorage.removeItem(USERS_KEY);
+  localStorage.removeItem(CURRENT_USER_KEY);
+}
